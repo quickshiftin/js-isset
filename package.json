@@ -1,0 +1,26 @@
+{
+  "name": "js-isset",
+  "version": "1.0.0",
+  "description": "isset for javascript - inspired by PHP",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quickshiftin/js-isset.git"
+  },
+  "keywords": [
+    "javascript",
+    "isset"
+  ],
+  "author": "Nathan Nobbe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quickshiftin/js-isset/issues"
+  },
+  "homepage": "https://github.com/quickshiftin/js-isset#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
