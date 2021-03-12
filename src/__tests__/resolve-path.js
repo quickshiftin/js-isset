@@ -1,5 +1,5 @@
 /* global expect */
-import {isObject, resolvePath} from '../resolve-path';
+import {isObject, resolvePath} from '~/resolve-path';
 
 const nullObject = null;
 const realObject = {};
