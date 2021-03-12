@@ -4,7 +4,13 @@
   "description": "isset for javascript - inspired by PHP",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "jest",
+    "watch": "jest --watch"
+  },
+  "jest": {
+    "roots": [
+      "src"
+    ]
   },
   "repository": {
     "type": "git",
