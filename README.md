@@ -43,6 +43,11 @@ By default, if a node doesn't exist along the desired path, `isset` will return 
 You may supply a third argument in this case to specify an alternate default value for a
 given invocation.
 
+# Installation
+```bash
+npm install --save @quickshiftin/js-isset
+```
+
 ## API
 ```javascript
 /**
@@ -75,6 +80,8 @@ function getPath(object, path, defaultValue=null)
 ## Example usage
 
 ```javascript
+import { isset, valAt } from '@quickshiftin/js-isset';
+
 var dataLayerObject = {
     config: {
         checklist: 'ready, set, go'
