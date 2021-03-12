@@ -1,3 +1,5 @@
+![build](https://github.com/quickshiftin/js-lib/actions/workflows/node.js.yml/badge.svg)
+
 # js-isset
 `isset` for javascript - inspired by [php](https://www.php.net/manual/en/function.isset.php)
 
