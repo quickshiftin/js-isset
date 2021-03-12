@@ -10,10 +10,17 @@ const resolvePath = ({
     path=null,
 }) => {
     //-------------------------------------
+    // Check object proper
+    //-------------------------------------
+    if(path === null && mode === 'bool') {
+        return exists(object);
+    }
+
+    //-------------------------------------
     // Validation
     //-------------------------------------
-    if(mode === 'bool' && path === null) {
-        return exists(object);
+    if(['undefined', 'boolean', 'number', 'string', 'bigint', 'symbol'].includes(typeof object)) {
+        throw new Error('object param must be of type object');
     }
 
     //-------------------------------------
@@ -87,7 +94,7 @@ const isset = (object, path=null) =>
  * Return the value at a given path, if present,
  * otherwise return a default value. A path is required.
  */
-const getPath = (object, path, defaultValue=null) =>
+const valAt = (object, path, defaultValue=null) =>
     resolvePath({
         defaultValue,
         object,
@@ -96,6 +103,6 @@ const getPath = (object, path, defaultValue=null) =>
 
 module.exports = {
     exists,
-    getPath,
+    valAt,
     isset,
 };

@@ -1,43 +1,50 @@
 /* global expect */
 import {
-    getPath,
+    valAt,
     isset,
 } from '~/resolve-path';
 
 const nullObject = null;
 const realObject = {};
 
+it('can handle a non-object', () => {
+    expect(isset(5)).toBe(true);
+    expect(isset(undefined)).toBe(false);
+    expect(() => { isset(5, '.hi'); }).toThrow(Error);
+    expect(() => { valAt(5, '.hi'); }).toThrow(Error);
+});
+
 it('can check first arg without a path', () => {
     expect(isset(nullObject)).toBe(false);
 });
 
-it('getPath to be supplied a path', () => {
-    expect(() => { getPath(nullObject); }).toThrow(Error);
+it('valAt to be supplied a path', () => {
+    expect(() => { valAt(nullObject); }).toThrow(Error);
 });
 
 it('can handle bogus path', () => {
     expect(() => { isset(nullObject, 5); }).toThrow(Error);
     expect(() => { isset(nullObject, ''); }).toThrow(Error);
     expect(() => { isset(nullObject, 'k'); }).toThrow(Error);
-    expect(() => { getPath(nullObject, 5); }).toThrow(Error);
-    expect(() => { getPath(nullObject, ''); }).toThrow(Error);
-    expect(() => { getPath(nullObject, 'k'); }).toThrow(Error);
+    expect(() => { valAt(nullObject, 5); }).toThrow(Error);
+    expect(() => { valAt(nullObject, ''); }).toThrow(Error);
+    expect(() => { valAt(nullObject, 'k'); }).toThrow(Error);
 });
 
 it("isset should return false when value isn't present", () => {
     expect(isset(realObject, '.some.path')).toBe(false);
 });
 
-it("getPath should return null when value isn't present", () => {
-    expect(getPath(realObject, '.some.path')).toBe(null);
+it("valAt should return null when value isn't present", () => {
+    expect(valAt(realObject, '.some.path')).toBe(null);
 });
 
 it("isset should return provided false when value isn't present", () => {
    expect(isset(realObject, '.some.path')).toBe(false); 
 });
 
-it("getPath should return provided default value when value isn't present and default specified", () => {
-   expect(getPath(realObject, '.some.path', false)).toBe(false); 
+it("valAt should return provided default value when value isn't present and default specified", () => {
+   expect(valAt(realObject, '.some.path', false)).toBe(false); 
 });
 
 const anotherObject = {
@@ -50,8 +57,8 @@ if('isset should return true when found at desired path', () => {
     expect(isset(anotherObject, '.some.path')).toBe(true);
 });
 
-if('getPath should return a primitive when found at desired path', () => {
-    expect(getPath(anotherObject, '.some.path')).toBe(5);
+if('valAt should return a primitive when found at desired path', () => {
+    expect(valAt(anotherObject, '.some.path')).toBe(5);
 });
 
 const sut = {
@@ -62,8 +69,8 @@ it('isset should skip nulls', () => {
     expect(isset(sut, '.testKey', '')).toBe(false);
 });
 
-it('getPath should skip nulls', () => {
-    expect(getPath(sut, '.testKey')).toBe(null);
+it('valAt should skip nulls', () => {
+    expect(valAt(sut, '.testKey')).toBe(null);
 });
 
 const someHash = { key: 'value' };
@@ -77,6 +84,6 @@ it('isset should return true when found at desired path', () => {
     expect(isset(yetAnotherObject, '.some.path')).toBe(true);
 });
 
-it('getPath should return an object when found at desired path', () => {
-    expect(getPath(yetAnotherObject, '.some.path')).toBe(someHash);
+it('valAt should return an object when found at desired path', () => {
+    expect(valAt(yetAnotherObject, '.some.path')).toBe(someHash);
 });
