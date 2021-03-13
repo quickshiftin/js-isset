@@ -72,7 +72,7 @@ function isset(object, path=null)
  * @returns [any]
  * @throws Error
  */
-function getPath(object, path, defaultValue=null)
+function valAt(object, path, defaultValue=null)
 ```
 
 ## Example usage
