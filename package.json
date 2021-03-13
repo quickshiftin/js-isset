@@ -1,6 +1,6 @@
 {
   "name": "js-isset",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "isset for javascript - inspired by PHP",
   "main": "lib/isset-lib.js",
   "scripts": {
