@@ -45,7 +45,7 @@ given invocation.
 
 # Installation
 ```bash
-npm install --save @quickshiftin/js-isset
+npm install --save js-isset
 ```
 
 ## API
@@ -80,7 +80,7 @@ function getPath(object, path, defaultValue=null)
 ## Example usage
 
 ```javascript
-import { isset, valAt } from '@quickshiftin/js-isset';
+import { isset, valAt } from 'js-isset';
 
 var dataLayerObject = {
     config: {

@@ -1,8 +1,8 @@
 {
   "name": "js-isset",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "isset for javascript - inspired by PHP",
-  "main": "lib/isset-lib.js",
+  "main": "lib/js-isset.js",
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
     "test": "jest",
