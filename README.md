@@ -23,7 +23,7 @@ try {
 }
 ```
 
-`isset` allows you to provide an object, and a 'path' to search for, and its companion function `valAt` let's you retrieve the value
+`isset` allows you to provide an object, and a 'path' to search for. Its companion function `valAt` let's you retrieve the value
 at that path with the same notation
 
 ```javascript
@@ -39,9 +39,7 @@ return valAt(dataLayerObject, '.config.checklist');
 ```
 depending on your use case.
 
-By default, if a node doesn't exist along the desired path, `isset` will return null.
-You may supply a third argument in this case to specify an alternate default value for a
-given invocation.
+If a node doesn't exist along the desired path, `isset` will return false. By default `valAt` will return `null`, but you can specifiy a `defaultValue` of your choosing.
 
 ## Installation
 ```bash
@@ -88,8 +86,9 @@ var dataLayerObject = {
     }
 };
 
-isset(dataLayerObject, '.config.checklist') // true
-valAt(dataLayerObject, '.config.checklist') // 'ready, set, go
-isset(dataLayerObject, '.config.broken')    // false
-valAt(dataLayerObject, '.config.broken')    // null
+isset(dataLayerObject, '.config.checklist')            // true
+valAt(dataLayerObject, '.config.checklist')            // 'ready, set, go
+isset(dataLayerObject, '.config.broken')               // false
+valAt(dataLayerObject, '.config.broken')               // null
+valAt(dataLayerObject, '.config.broken', 'my default') // 'my default'
 ```
