@@ -1,8 +1,8 @@
 {
-  "name": "@quickshiftin/js-isset",
+  "name": "js-isset",
   "version": "1.0.0",
   "description": "isset for javascript - inspired by PHP",
-  "main": "lib/@quickshiftin/isset-lib.js",
+  "main": "lib/isset-lib.js",
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
     "test": "jest",
