@@ -43,7 +43,7 @@ By default, if a node doesn't exist along the desired path, `isset` will return 
 You may supply a third argument in this case to specify an alternate default value for a
 given invocation.
 
-# Installation
+## Installation
 ```bash
 npm install --save js-isset
 ```
